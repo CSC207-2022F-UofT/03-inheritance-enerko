@@ -32,7 +32,10 @@ public class HandBagTest {
 
     @Test(timeout = 50)
     public void testGetNumberOfContentsNonEmpty() {
-        b.addItem("Cheese");
+        // b.addItem("Cheese");
+        assertEquals(4,b.getCapacity());
+        assertEquals(0,b.getNumberOfContents());
+        assertEquals(b.addItem("Cheese"),true);
         b.addItem("Eggs");
         assertEquals(2, b.getNumberOfContents());
     }

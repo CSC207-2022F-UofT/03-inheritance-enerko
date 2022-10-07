@@ -16,7 +16,7 @@ public abstract class Bag {
     private String color;
     private int numberOfContents;
     private int capacity;
-    private String[] contents = new String[capacity];
+    private String[] contents;
 
     /*
      * TODO: Create a constructor that takes two arguments:
@@ -30,6 +30,7 @@ public abstract class Bag {
     public Bag(String color, int capacity){
         this.color = color;
         this.capacity = capacity;
+        this.contents = new String[capacity];
     }
 
     /*
@@ -68,9 +69,10 @@ public abstract class Bag {
      *       and false otherwise.
      */
     public boolean addItem(String item){
-        if (this.numberOfContents < this.capacity){
-            this.numberOfContents ++;
+
+        if (this.numberOfContents < this.contents.length){
             this.contents[numberOfContents] = item;
+            this.numberOfContents ++;
             return true;
         }
         else{
@@ -89,10 +91,14 @@ public abstract class Bag {
      * @return
      */
     public String popItem(){
-        String lastItem = contents[-1];
-        contents[-1] = "";
-        numberOfContents --;
-        return lastItem;
+
+        if (numberOfContents > 0){
+            String lastItem = contents[numberOfContents-1];
+            this.contents[numberOfContents-1] = null;
+            this.numberOfContents --;
+            return lastItem;
+        }
+        return null;
     }
 
     /**

@@ -20,7 +20,11 @@ class BagMain {
             bags[i].enhance();
         }
         if (double_enhance_handbags) {
-            enhanceBags(bags, false);
+            for (int i = 0; i < bags.length; i++){
+                if (bags[i] instanceof HandBag){
+                    bags[i].enhance();
+                }
+            }
         }
     }
     /**
