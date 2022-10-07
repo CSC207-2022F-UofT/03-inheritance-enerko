@@ -7,7 +7,6 @@
  * helpful while working through this exercise.
  */
 public class HandBag extends Bag{
-
     /**
      * Creates a new HandBag with the given color and
      * capacity.

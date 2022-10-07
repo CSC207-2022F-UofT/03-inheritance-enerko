@@ -95,7 +95,6 @@ public abstract class Bag {
         return lastItem;
     }
 
-
     /**
      * Increase this bag's capacity by n.
      *
